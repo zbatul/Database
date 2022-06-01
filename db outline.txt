@@ -1,0 +1,57 @@
+news table
+news id
+article_heading
+article_type - politics, business, world news, us news, technology, science, sports, climate, education, health
+article_subheading
+article_link
+article_image
+article_video
+article_text
+author_name
+publish_timestamp
+article_rank
+news_type - text, video
+news_date/news_timestamp
+
+other attributes not considered here: source, location, language, article_update_timestamp
+ads not considered
+
+weather table
+hour of the day
+date
+location
+temperature
+weather_category: foggy, rainy, sunny, haze, cloudy
+
+CREATE TABLE news (
+	news_id BIGSERIAL PRIMARY KEY,
+	heading_text VARCHAR(255) NOT NULL,
+	news_category VARCHAR(20) NOT NULL,-- politics, business, world news, us news, technology, science, sports, climate, education, health
+	bullet_points_text TEXT,
+	url VARCHAR(255) NOT NULL,
+	image_path_url VARCHAR(255),
+	text TEXT,
+	author_name VARCHAR(255) NOT NULL,
+	publish_timestamp TIMESTAMP NOT NULL,
+	news_rank BIGINT UNIQUE NOT NULL,
+	news_type VARCHAR(10) NOT NULL -- text OR video
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+in real time we can use refresh materialized view to fewtch todays data
